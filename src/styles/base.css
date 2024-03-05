@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: system-ui, sans-serif;
+  }
+  body {
+    background: white;
+    min-height: 100vh;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  @media (max-width: 1024px) {
+    :root {
+      font-size: 80%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      font-size: 70%;
+    }
+  }
+}
+@layer utilities {
+  .section-title {
+    @apply text-3xl sm:text-5xl font-semibold text-blue-700 capitalize;
+  }
+  .section-subtitle {
+    @apply sm:text-xl mt-4 leading-relaxed font-medium max-w-[60rem] mb-4;
+  }
+  .section-parag {
+    @apply sm:text-xl mt-4 leading-relaxed font-medium;
+  }
+  .section-title-container {
+    @apply flex flex-col items-center justify-center  text-center;
+  }
+  .section-padding {
+    @apply py-10 sm:py-16;
+  }
+
+  .center-absolute {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+/* .carouselContainer {
+    width: 100%;
+  } */
+/* @media (min-width: 750px) {
+    .carouselContainer {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 67rem;
+    }
+  } */
+.carousel {
+  position: relative;
+  background-color: var(--background-code);
+}
+@media (max-width: 749px) {
+  .carousel {
+    border-top: 0.1rem solid var(--detail-low-contrast);
+    border-bottom: 0.1rem solid var(--detail-low-contrast);
+  }
+}
+@media (min-width: 750px) {
+  .carousel {
+    border-radius: 0.4rem;
+    border: 0.1rem solid var(--detail-low-contrast);
+  }
+}
+
+.embla {
+  /* --slide-spacing: 1rem; */
+  --slide-size: 100%;
+  /* --slide-height: 30rem; */
+  /* padding: 1.6rem; */
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+  position: relative;
+}
+.embla__slide__img {
+  display: block;
+  /* height: var(--slide-height); */
+  width: 100%;
+  object-fit: cover;
+}
+
+.embla__button {
+  -webkit-appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.embla__buttons {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1.6rem;
+}
+.embla__button {
+  z-index: 1;
+  color: var(--background-site);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+}
+.embla__button:disabled {
+  opacity: 0.3;
+}
+.embla__button__svg {
+  width: 65%;
+  height: 65%;
+}
+.embla__dot {
+  -webkit-appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.embla__dots {
+  z-index: 1;
+  bottom: 1.6rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.embla__dot {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+}
+.embla__dot:after {
+  background: gold;
+  border-radius: 0.2rem;
+  width: 100%;
+  height: 0.3rem;
+  content: "";
+}
+.embla__dot--selected:after {
+  background: green;
+}
+
+.wrapper {
+  width: calc(100% - 3rem);
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-spacing, 1em);
+}
+
+.content-grid {
+  --padding-inline: 1rem;
+  --content-max-width: 1300px;
+  --breakout-max-width: 1600px;
+
+  --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(var(--padding-inline), 1fr)
+    [breakout-start] minmax(0, var(--breakout-size))
+    [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+    [content-end]
+    minmax(0, var(--breakout-size)) [breakout-end]
+    minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+  grid-column: content;
+}
+
+.content-grid > .breakout {
+  grid-column: breakout;
+}
+
+.content-grid > .full-width {
+  grid-column: full-width;
+
+  display: grid;
+  grid-template-columns: inherit;
+}
+.content-grid > .all-full-width {
+  grid-column: full-width;
+}
+
+img.full-width {
+  width: 100%;
+  max-height: 45vh;
+  object-fit: cover;
+}

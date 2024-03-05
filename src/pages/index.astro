@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ClientsReviews from "@main/components/home/ClientsReviews.astro";
+import Hero from "@main/components/home/Hero.astro";
+import Services from "@main/components/home/Services.astro";
+import Summary from "@main/components/home/Summary.astro";
+import WhyUs from "@main/components/home/WhyUs.astro";
+---
+
+<Layout title="1000$ | Software Development">
+  <main class="content-grid flow" transition:animate="slide">
+    <Hero />
+    <Summary />
+    <Services />
+    <ClientsReviews />
+    <WhyUs />
+  </main>
+</Layout>

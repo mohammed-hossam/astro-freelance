@@ -1,0 +1,81 @@
+---
+import TitleSubtitle from "@main/components/shared/TitleSubtitle.astro";
+import { Image } from "astro:assets";
+
+const data = [
+  {
+    pic: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).jpg",
+    name: "John Doe",
+    job: "Web Developer",
+    review:
+      "Working with 1000$ has been a pleasure. Their remote team responsiveness and adaptability are commendable. They not only understood our unique business needs but also adapted to changes swiftly, showcasing a truly agile approach to software development. A reliable partner for remote collaboration",
+  },
+  {
+    pic: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).jpg",
+    name: "John Doe",
+    review:
+      "We partnered with them for a critical project, and the results were phenomenal. Their ability to tailor solutions to our specific requirements, coupled with their remote capabilities, made them an invaluable asset. The positive impact of their work is felt globally. A trustworthy partner for any organization",
+  },
+  {
+    pic: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).jpg",
+    name: "John Doe",
+    review:
+      "One of the standout features of them is their remarkable ability to build scalable solutions with precision. As our project evolved, their technical architecture seamlessly accommodated growth without compromising performance. Their foresight and expertise in designing scalable systems have been instrumental in the success of our software",
+  },
+];
+---
+
+<section class="text-center flow section-padding">
+  <TitleSubtitle
+    title="We Love Happy Clients!"
+    subtitle="Client satisfaction is our ultimate goal. Here are some testimonials from our clients expressing their satisfaction with our software development solutions"
+  />
+
+  <div class="carousel text-center">
+    <div class="embla embla__reviews">
+      <div class="embla__viewport">
+        <div class="embla__container">
+          {
+            data.map((ele) => {
+              return (
+                <div class="embla__slide">
+                  <Image
+                    class="mx-auto mb-6 rounded-full shadow-lg dark:shadow-black/20 w-[150px]"
+                    src={ele.pic}
+                    width="250"
+                    height="250"
+                    alt="avatar"
+                    format="webp"
+                  />
+                  <div class="flex flex-wrap justify-center">
+                    <div class="w-full shrink-0 grow-0 basis-auto px-3 lg:w-8/12">
+                      <h5 class="mb-2 text-lg font-bold">{ele.name}</h5>
+                      <p class="mb-4 font-medium text-neutral-700 dark:text-neutral-400">
+                        {ele.job}
+                      </p>
+                      <p class="mb-6 text-neutral-500 dark:text-neutral-300">
+                        {ele.review}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 96 960 960"
+                          class="inline-block w-6"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M580 556h160V396H580v160Zm-360 0h160V396H220v160Zm406 220 80-160H520V336h280v288l-76 152h-98Zm-360 0 80-160H160V336h280v288l-76 152h-98Zm34-300Zm360 0Z"
+                          />
+                        </svg>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="embla__dots embla__dots__reviews !bottom-[-0.5rem]"></div>
+  </div>
+</section>

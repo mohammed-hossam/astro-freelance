@@ -1,0 +1,59 @@
+---
+import TitleSubtitle from "@main/components/shared/TitleSubtitle.astro";
+const data = [
+  {
+    title: "Reliability and Robustness",
+    subtitle:
+      "Your software should be as reliable as your business. We pride ourselves on delivering robust, secure, and scalable solutions that you can trust.",
+  },
+  {
+    title: "Client-Centric Approach",
+    subtitle:
+      "Your success is our success. We prioritize your needs and goals, working collaboratively to ensure that our solutions contribute to your business growth.",
+  },
+  {
+    title: "Agile Development Process",
+    subtitle:
+      "In the fast-paced world of technology, agility is key. Our flexible and iterative development process ensures that we can adapt to changes swiftly, keeping your project on track.",
+  },
+  {
+    title: "Continuous Support and Maintenance",
+    subtitle:
+      "Our commitment doesn’t end with the delivery of the software. We provide ongoing support and maintenance to ensure that your solution evolves with your business.",
+  },
+  {
+    title: "Cost-Effective Solutions",
+    subtitle:
+      "We understand the importance of budget constraints. Our goal is to provide cost-effective solutions without compromising on quality, ensuring you get the best value for your investment.",
+  },
+  {
+    title: "Transparent Communication",
+    subtitle:
+      "Communication is the cornerstone of successful partnerships. We believe in transparent and open communication, keeping you informed at every stage of the development process.",
+  },
+];
+---
+
+<section class="bg-gray-50 flow full-width section-padding">
+  <TitleSubtitle
+    title="why choose us ?"
+    subtitle="we understand that choosing a software development partner is a significant decision."
+  />
+  <ul class="mt-16 grid grid-cols-1 gap-6 text-center text-slate-700 md:grid-cols-3">
+    {
+      data.map((ele) => {
+        return (
+          <li class="rounded-xl bg-white px-6 py-8 shadow-sm">
+            <img
+              src="https://www.svgrepo.com/show/530438/ddos-protection.svg"
+              alt=""
+              class="mx-auto h-10 w-10"
+            />
+            <h3 class="my-3 font-display font-medium">{ele.title}</h3>
+            {ele.subtitle}
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>
